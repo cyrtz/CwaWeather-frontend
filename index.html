@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>森森天氣</title>
-    <link rel="icon" type="image/png" href="./icon-v2.png">
-    <link rel="apple-touch-icon" href="./icon-v2.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./icon-v2.png">
+    <title>冒險者天氣預報</title>
+    <link rel="icon" type="image/png" href="./icon.png">
+    <link rel="apple-touch-icon" href="./icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
@@ -346,7 +346,7 @@
             text-shadow: 1px 1px 0 #000;
         }
 
-        /* Loading 畫面 - 像素風格 */
+        /* Loading 畫面 - 泰拉瑞亞風格 */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -366,27 +366,75 @@
         }
         
         .loading-icon {
-            font-size: 2rem;
-            animation: pixelBounce 0.6s infinite;
-            background: #FFD700;
-            border: 3px solid #000;
-            padding: 8px 12px;
+            font-size: 2.5rem;
+            animation: terrariaFloat 1.2s ease-in-out infinite;
+            background: linear-gradient(135deg, #4A3428 0%, #3A2418 100%);
+            border: 3px solid #6B4E3D;
+            border-bottom: 4px solid #2A1810;
+            border-right: 4px solid #2A1810;
+            padding: 20px 24px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 6px 6px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .loading-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.05) 2px,
+                rgba(0,0,0,0.05) 4px
+            );
+            pointer-events: none;
         }
         
-        @keyframes pixelBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+        @keyframes terrariaFloat {
+            0%, 100% { 
+                transform: translateY(0) scale(1);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 6px 6px 0 rgba(0, 0, 0, 0.4);
+            }
+            50% { 
+                transform: translateY(-16px) scale(1.05);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 8px 8px 0 rgba(0, 0, 0, 0.3);
+            }
         }
         
         .loading-text {
-            color: #000;
+            color: #F0E7D8;
             font-weight: bold;
-            margin-top: 16px;
-            font-size: 0.5rem;
-            background: #FFFF00;
-            padding: 6px 12px;
-            border: 2px solid #000;
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+            margin-top: 24px;
+            font-size: 0.65rem;
+            background: linear-gradient(135deg, #4A3428 0%, #3A2418 100%);
+            padding: 8px 16px;
+            border: 3px solid #6B4E3D;
+            border-bottom: 4px solid #2A1810;
+            border-right: 4px solid #2A1810;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 4px 4px 0 rgba(0, 0, 0, 0.4);
+            text-shadow: 1px 1px 0 #000;
+            position: relative;
+        }
+
+        .loading-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+            pointer-events: none;
         }
     </style>
 </head>
